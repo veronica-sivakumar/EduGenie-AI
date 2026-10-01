@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EduGenie AI Learning Assistant"
+    >
+
+    <title>
+        EduGenie | AI Learning Assistant
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="app-shell">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI-POWERED LEARNING ASSISTANT
+                </p>
+
+                <h1>
+                    Edu<span>Genie</span>
+                </h1>
+
+                <p class="subtitle">
+
+                    Ask questions, simplify concepts,
+                    create quizzes, summarize notes,
+                    and build personalized learning paths.
+
+                </p>
+
+            </div>
+
+
+            <div class="model-pill">
+
+                {{ model }}
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= WORKSPACE ================= -->
+
+        <section class="workspace">
+
+
+            <!-- ================= CONTROLS ================= -->
+
+            <div class="card controls">
+
+                <label for="task">
+
+                    Choose a learning task
+
+                </label>
+
+
+                <select id="task">
+
+                    <option value="qa">
+
+                        Ask a Question
+
+                    </option>
+
+                    <option value="explain">
+
+                        Explain a Topic
+
+                    </option>
+
+                    <option value="quiz">
+
+                        Generate Quiz
+
+                    </option>
+
+                    <option value="summarize">
+
+                        Summarize Text
+
+                    </option>
+
+                    <option value="learn">
+
+                        Recommend Learning Path
+
+                    </option>
+
+                </select>
+
+
+                <div id="dynamic-fields">
+
+                </div>
+
+
+                <button
+                    id="submit-btn"
+                    class="primary-btn"
+                >
+
+                    <span id="button-text">
+
+                        Generate Answer
+
+                    </span>
+
+                    <span
+                        id="spinner"
+                        class="spinner hidden"
+                    >
+                    </span>
+
+                </button>
+
+
+                <button
+                    id="clear-btn"
+                    class="secondary-btn"
+                    type="button"
+                >
+
+                    Clear
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= RESULT ================= -->
+
+            <div class="card result-card">
+
+                <div class="result-heading">
+
+                    <h2>
+                        EduGenie Result
+                    </h2>
+
+                    <span
+                        id="status"
+                        class="status"
+                    >
+
+                        Ready
+
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="result"
+                    class="result empty"
+                >
+
+                    Your AI-generated learning
+                    result will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <span>
+                EduGenie
+            </span>
+
+            <span>
+                FastAPI + Google Gemini
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', path='app.js') }}"
+    ></script>
+
+</body>
+
+</html>
