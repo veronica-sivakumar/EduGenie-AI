@@ -1,71 +1,162 @@
-# EduGenie - Google Gemini Powered Learning Assistant
+# EduGenie – Google Gemini Powered Learning Assistant
 
-EduGenie is a lightweight AI-powered educational assistant designed to help students learn effectively.
+EduGenie is a lightweight AI-powered educational assistant designed to help students learn more effectively using Generative AI.
+
+It provides multiple learning features through a simple web interface:
+
+- Ask questions and receive AI-generated answers
+- Get simplified explanations of complex concepts
+- Generate multiple-choice quizzes
+- Summarize educational content
+- Get personalized learning recommendations
 
 ## Features
 
-- Question and Answer
-- Concept Explanation
-- Quiz Generation
-- Text Summarization
-- Personalized Learning Recommendations
+### 1. Question & Answer
+Students can enter a question and receive a clear, student-friendly answer powered by Google Gemini.
 
-## Technologies Used
+### 2. Concept Explanation
+EduGenie explains difficult technical concepts using simple language, structured points, examples, and a short recap.
 
+### 3. Quiz Generation
+Students can provide educational text and generate multiple-choice questions.
+
+Each quiz contains:
+- Question
+- 4 options
+- Correct answer
+- Short explanation
+
+### 4. Summarization
+EduGenie converts long educational passages into concise revision-friendly summaries while retaining important concepts.
+
+### 5. Learning Recommendations
+Students can enter a topic, current learning level, and learning goal to receive a structured learning path.
+
+---
+
+## Technology Stack
+
+### Backend
 - Python
 - FastAPI
+- Uvicorn
+- Pydantic
+
+### AI
+- Google Gemini API
+- Gemini 3.8 Flash
+- Google GenAI Python SDK
+
+### Frontend
 - HTML
 - CSS
 - JavaScript
-- Google Gemini API
-- LaMini-Flan-T5-783M
+- Jinja2 Templates
 
-## Project Modules
+### Testing
+- Pytest
+- FastAPI TestClient
 
-### 1. Q&A Module
-Answers students' academic questions using AI.
+---
 
-### 2. Explanation Module
-Provides simple explanations for complex concepts.
+## Project Architecture
 
-### 3. Quiz Module
-Generates multiple-choice questions from educational content.
+```text
+EduGenie-AI/
+│
+├── main.py
+├── ai_client.py
+├── config.py
+├── prompts.py
+├── qna.py
+├── explanation_module.py
+├── quiz_module.py
+├── summary_module.py
+├── learning_path.py
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── style.css
+│
+├── tests/
+│
+├── requirements.txt
+├── requirements-local.txt
+├── .gitignore
+└── README.md
 
-### 4. Summary Module
-Summarizes long educational content into concise points.
+Prerequisites
 
-### 5. Learning Path Module
-Provides structured learning recommendations from beginner to advanced level.
+Before running EduGenie, make sure the following are installed:
 
-## Backend API Endpoints
+Python 3.10 or later
+Git
+A Google Gemini API key
+Installation
+Step 1: Clone the Repository
 
-- `/qa`
-- `/explain`
-- `/quiz`
-- `/summarize`
-- `/learn/recommendations`
+Open a terminal or PowerShell and run:
 
-## Technologies
+git clone https://github.com/veronica-sivakumar/EduGenie-AI.git
 
-- Python 3.10+
-- FastAPI
-- Uvicorn
-- Google Gemini
-- LaMini-Flan-T5-783M
-- HTML & CSS
-- JavaScript
+Then move into the project folder:
 
-## How to Run
+cd EduGenie-AI
+Step 2: Create a Virtual Environment
 
-Install the required packages:
+Create a Python virtual environment:
 
-Run the application:
+python -m venv .venv
+Step 3: Activate the Virtual Environment
+Windows PowerShell
+.venv\Scripts\Activate.ps1
+Windows Command Prompt
+.venv\Scripts\activate
 
-python -m uvicorn main:app --reload
+After activation, the terminal should show:
 
-Open the application in your browser:
+(.venv)
+Step 4: Install Required Dependencies
+
+Install all required Python packages using:
+
+python -m pip install -r requirements.txt
+Gemini API Configuration
+
+EduGenie uses Google Gemini for AI-powered features.
+
+Create a file named:
+
+.env
+
+in the project root directory.
+
+Add the following configuration:
+
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+GEMINI_MODEL=gemini-3.8-flash
+
+Replace YOUR_GEMINI_API_KEY with your own Gemini API key.
+
+Never share your Gemini API key publicly or upload the .env file to GitHub.
+
+The .env file is excluded from Git using .gitignore.
+
+Running the Application
+
+After completing the installation and configuration, start the FastAPI server using:
+
+uvicorn main:app --reload
+
+If the server starts successfully, you will see a message similar to:
+
+Uvicorn running on http://127.0.0.1:8000
+
+Open the following address in a web browser:
 
 http://127.0.0.1:8000
 
-```bash
-pip install -r requirements.txt
+The EduGenie web interface will then be available.
